@@ -22,9 +22,11 @@ namespace Codewars
 			var haystack_1 = new object[] { '3', "123124234", null, "needle", "world", "hay", 2, '3', true, false };
 
 			Console.WriteLine(EvenOrOdd(2));
-			
+
 			Console.ReadLine();
 		}
+		
+		// 8 kyu Even or Odd
 		public static string EvenOrOdd(int number)	=> number % 2 != 0 ? "Odd" : "Even";
 
 		//public static long[] Digitize(long n) => (from s in n.ToString() select s).ToArray(long);
