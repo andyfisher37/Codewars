@@ -6,8 +6,11 @@ using System.Globalization;
 using System.Linq;
 using System.Net.Http.Headers;
 using System.Runtime.Remoting.Messaging;
+using System.Security.Cryptography;
+using System.Security.Policy;
 using System.Text;
 using System.Threading.Tasks;
+using System.Xml.Linq;
 
 namespace Codewars
 {
@@ -61,6 +64,12 @@ namespace Codewars
 			throw new NotImplementedException();
 		}
 
+		// Create a function which answers the question "Are you playing banjo?".
+		//	If your name starts with the letter "R" or lower case "r", you are playing banjo!
+		// The function takes a name as its only argument, and returns one of the following strings:
+		// name + " plays banjo" 
+		// name + " does not play banjo"
+		// Names given are always valid strings.
 		public static string AreYouPlayingBanjo(string name)
 		{
 			if (name[0].ToString().ToLower() == "r") return name + " plays banjo";
