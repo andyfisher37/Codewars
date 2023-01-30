@@ -16,23 +16,24 @@ namespace Codewars
 {
 	internal class Program
 	{
-
+		// Some solved kata`s from Codewars.com
 
 		static void Main(string[] args)
 		{
 
-			int[] m = { 1, 2, 3, 4, 5, 6, 7, 8, 9 };
+			int[] m = { 1, 2, 3, 4, 5, 6, 7, 8, 9, 0 };
 			var haystack_1 = new object[] { '3', "123124234", null, "needle", "world", "hay", 2, '3', true, false };
+			string[] arr1 = new string[] { "2", "1", "3", "1", "4" };
+			string[] arr2 = new string[] { "1" };
+			string[] sout;
+			sout = arrayDiff(arr1, arr2);
 
-			Console.WriteLine(EvenOrOdd(2));
-
+			Console.WriteLine(CreatePhoneNumber(m));
 			Console.ReadLine();
 		}
-		
-		// 8 kyu Even or Odd
-		public static string EvenOrOdd(int number)	=> number % 2 != 0 ? "Odd" : "Even";
 
-		//public static long[] Digitize(long n) => (from s in n.ToString() select s).ToArray(long);
+		// 8 kyu Even or Odd
+		public static string EvenOrOdd(int number) => number % 2 != 0 ? "Odd" : "Even";
 
 		static long GetAllOddSum(int[] intArray)
 		=> (from i in intArray where i % 2 != 0 select (long)i).Sum();
@@ -50,7 +51,7 @@ namespace Codewars
 		{
 			return list.Min();
 		}
-  
+
 		public int Max(int[] list)
 		{
 			return list.Max();
@@ -59,7 +60,7 @@ namespace Codewars
 		public static string CountSheep(int n)
 		{
 			string res = "";
-			for(int i=0;i<n;i++) res += String.Format("{0} sheep...", i+1 );
+			for (int i = 0; i < n; i++) res += String.Format("{0} sheep...", i + 1);
 			return res;
 			throw new NotImplementedException();
 		}
@@ -76,6 +77,7 @@ namespace Codewars
 			else return name + " does not play banjo";
 
 		}
+
 		public static int summation(int num)
 		{
 			int res = 0;
@@ -102,7 +104,35 @@ namespace Codewars
 			foreach (uint l2 in query2) d2 = l2;
 			if (d2 < d1) return 0;
 			else return 1;
-			
+
 		}
+
+		//Your goal in this kata is to implement a difference function, which subtracts one list from another and returns the result.
+		//It should remove all values from list a, which are present in list b keeping their order.
+		//arrayDiff([1, 2],[1]) == [2]
+		//If a value is present in b, all of its occurrences must be removed from the other:
+		//arrayDiff([1, 2, 2, 2, 3],[2]) == [1,3]
+		public static string[] arrayDiff(string[] arr1, string[] arr2)
+		{
+			foreach (string s in arr2)
+			{
+				arr1 = arr1.Where(a => a != s).ToArray();
+			}
+			return arr1;
+		}
+
+		public static string Solution(string str) => new string(str.Reverse().ToArray()).ToString();
+
+		//6 kyu Create Phone Number
+		public static string CreatePhoneNumber(int[] numbers)
+		{
+			return String.Format("({0}) {1}-{2}",
+				String.Join("", numbers).Substring(0, 3),
+				String.Join("", numbers).Substring(3, 3),
+				String.Join("", numbers).Substring(6, 4));
+		}
+
+
 	}
+
 }
